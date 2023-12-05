@@ -9,7 +9,9 @@ export default function Header() {
     const [list, setList] = useState("id, title")
 
     function trocar() {
-        setText("red")
+        setText("green")
+        setText(text == "blue" ? "0" : "X")
+
         console.log(text)
     }
 

@@ -10,7 +10,7 @@ export default function Banner() {
     const [fist, setFist] = useState("id, title")
 
     function trocar() {
-        setText("red")
+        setText("green")
         console.log(text)
     }
 
