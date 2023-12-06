@@ -10,7 +10,8 @@ export default function Header() {
 
     function trocar() {
         setText("green")
-        setText(text == "blue" ? "0" : "X")
+        setText("rose")
+        setText(text == "blue" ? "green"   : "blue")
 
         console.log(text)
     }
