@@ -19,7 +19,7 @@ export default function Header() {
 
     return (
         <>
-        <header className="bg-black top-0  w-screen   p-6  shadow-lg rounded-bl-lg rounded-br-lg '>">
+        <header className=" backdrop-blur-md bg-opacity-100 fixed     top-0  w-screen bg-gradient-green-500   p-6  shadow-lg rounded-bl-lg rounded-br-lg '>">
             <h1 
              style={{color:text} }
             className="text-3xl text-center justify-center flex text-white">{text}</h1>

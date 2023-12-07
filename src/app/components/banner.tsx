@@ -19,16 +19,24 @@ export default function Banner() {
       setList(novalist)
     }
 
-    // function update(index:){
-    //    list[]
-    // }
+     function update(value:string, index:number){
+        console.log(value, index)
+        console.log(list[index]);
+        setList(addlist => {
+            const updates = [...addlist]
+            addlist[index] = value
+            return addlist
+        })
+                
+     
+     }
    
     return (
-        <section className="flex justify-center p-1">
-            <div className="border border-black h-full w-auto rounded justify-center">
+        <section className="flex justify-center p-1 bg-cover h-screen pt-32  "  style={{ backgroundImage: `url('./oi.png')` }}>
+            <div className="border-2  border-black h-full w-auto rounded shadow-lg shadow-black justify-center">
                 <div className="flex p-1">
                     <input
-                        className="rounded text-2xl border-black border-2"
+                        className="rounded text-2xl bg-gray-300 border-black border-2"
                         type="text"
                         value={atualizar}
                         onChange={(e) => setAtualizar(e.target.value)}
@@ -43,12 +51,12 @@ export default function Banner() {
                 </div>
                 <div className="p-1">
                     {list.map((note, index) =>
-                        <p className="text-green-500 divide-y-2 border border-black p-1 text-left flex justify-between place-items-center w-full rounded hover:border-green-500 cursor-pointer">
-                            {/* <input  
-                            onChange={(e) => update(e.target.value)} type="text"  defaultValue={note}/>
-                            <button onClick={() => remover(index)} className="hover:text-black">
+                        <p className="text-black font-medium divide-y-2 border-2 border-black p-1 text-left flex justify-between place-items-center w-full rounded hover:border-green-500 cursor-pointer">
+                             <input  
+                                onChange={(e) => update(e.target.value,index)} type="text" className="border-2 border-black rounded bg-gray-300"   defaultValue={note}/>
+                            <button onClick={() => remover(index)} className="hover:text-black text-green-500">
                                 X
-                            </button> */}
+                            </button> 
                         </p>
                     )}
                 </div>
