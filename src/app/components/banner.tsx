@@ -1,10 +1,13 @@
 "use client"
 
 import React, { useState } from "react";
+import Header from "@/app/components/header"
 
 export default function Banner() {
     const [list, setList] = useState(["tabom", "tatata", "olamaa"]);
     const [atualizar, setAtualizar] = useState("");
+    const[texto, setTexto] = useState('url("./p.jpg")')
+    
 
     function adicionarTexto(index: any){
         if(atualizar.trim() !== ""){
@@ -28,11 +31,22 @@ export default function Banner() {
             return addlist
         })
                 
-     
      }
    
+     function trocare() {
+        setTexto(texto == "url('./p.jpg')" ? "url('./oo.jpg')" : "url('./p.jpg')")
+    }
+
+
+   
+     
     return (
-        <section className="flex justify-center p-1 bg-cover h-screen pt-32  "  style={{ backgroundImage: `url('./.png')` }}>
+        <section className="flex justify-center  w-screen p-1 bg-cover h-screen pt-32  "  style={{ backgroundImage: texto ,backgroundPosition: '',}}>
+            <Header
+            image={texto}
+            change={trocare}
+            
+            />
             <div className="border-2  border-black h-full w-auto rounded shadow-lg shadow-black justify-center">
                 <div className="flex p-1">
                     <input
@@ -44,17 +58,17 @@ export default function Banner() {
                 </div>
                 <div className="flex justify-center">
                     <button
-                        className="bg-green-500 rounded hover:bg-black hover:text-green-500 hover:border-green-500 border-black border-2 w-80 text-center"
+                        className="  rounded hover:bg-gray-500 hover:text-black hover:border-black border-black border-2 w-80 text-center"
                         onClick={adicionarTexto}>
                         Adicionar Nota
                     </button>
                 </div>
                 <div className="p-1">
                     {list.map((note, index) =>
-                        <p className="text-black font-medium divide-y-2 border-2 border-black p-1 text-left flex justify-between place-items-center w-full rounded hover:border-green-500 cursor-pointer">
+                        <p className="text-black font-medium divide-y-2 border-2 border-black p-1 text-left flex justify-between place-items-center w-full rounded hover:border-white cursor-pointer">
                              <input  
                                 onChange={(e) => update(e.target.value,index)} type="text" className="border-2 border-black rounded bg-gray-300"   defaultValue={note}/>
-                            <button onClick={() => remover(index)} className="hover:text-black text-green-500">
+                            <button onClick={() => remover(index)} className="hover:text-black text-white">
                                 X
                             </button> 
                         </p>

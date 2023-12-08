@@ -1,39 +1,43 @@
 "use client"
 
 import { useState } from "react"
+import { MdInvertColors } from "react-icons/md";
+import { FaPen } from "react-icons/fa";
 
-export default function Header() {
+interface TTProps {
+    image: string
+    change: () => void
+}
 
-    const [text, setText] = useState("blue")
+export default function Header(props: TTProps) {
+
+    const [text, setText] = useState("black")
     const [list, setList] = useState("id, title")
-    const[texto, setTexto] = useState('url("./p.jpg")')
+
 
     function trocar() {
         setText("green")
 
-        setText(text == "blue" ? "green" : "blue")
+        setText(text == "black" ? "white " : "black")
 
 
         console.log(text)
     }
 
-    function trocare() {
-        setTexto(texto == "url('./p.jpg')" ? "url('./oi.png')" : "url('./p.jpg')")
-    }
 
 
     return (
         <>
-            <header style={{ background: texto }} className=" backdrop-blur-md bg-opacity-100 fixed     top-0  w-screen bg-gradient-green-500  p-6  shadow-lg rounded-bl-lg rounded-br-lg '>">
+            <header style={{ background: props.image }} className=" fixed top-0  w-screen items-center bg-gradient-green-500  p-6  shadow-lg rounded-bl-lg rounded-br-lg '>">
                 <h1
                     style={{ color: text }}
                     onChange={() => text}
                     className="text-4xl text-center  justify-center flex ">Bloco de Notas</h1>
-                <button onClick={trocar} className="text-3xl text-white">ooooo</button>
-                <button onClick={() => trocare()} className="text-3xl text-white">iii</button>
+                <div className="flex justify-between">
+                    <button onClick={trocar} className="text-2xl text-white hover:scale-110"><FaPen /></button>
+                    <button onClick={() => (props.change())} className="text-3xl text-white hover:scale-110"><MdInvertColors /></button>
+                </div>
 
-
-                    
             </header>
         </>
     )
