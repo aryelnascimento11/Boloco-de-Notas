@@ -32,7 +32,7 @@ export default function Banner() {
      }
    
     return (
-        <section className="flex justify-center p-1 bg-cover h-screen pt-32  "  style={{ backgroundImage: `url('./oi.png')` }}>
+        <section className="flex justify-center p-1 bg-cover h-screen pt-32  "  style={{ backgroundImage: `url('./.png')` }}>
             <div className="border-2  border-black h-full w-auto rounded shadow-lg shadow-black justify-center">
                 <div className="flex p-1">
                     <input
