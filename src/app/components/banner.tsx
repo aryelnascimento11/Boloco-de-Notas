@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import Header from "@/app/components/header"
+import { MdInvertColors } from "react-icons/md";
+import { FaPen } from "react-icons/fa";
+
 
 export default function Banner() {
     const [list, setList] = useState(["tabom", "tatata", "olamaa"]);
