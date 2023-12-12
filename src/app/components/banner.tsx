@@ -68,7 +68,7 @@ export default function Banner() {
                 </div>
                 <div className="p-1">
                     {list.map((note, index) =>
-                        <p className="text-black font-medium divide-y-2 border-2 border-black p-1 text-left flex justify-between place-items-center w-full rounded hover:border-white cursor-pointer">
+                        <p key={note} className="text-black font-medium divide-y-2 border-2 border-black p-1 text-left flex justify-between place-items-center w-full rounded hover:border-white cursor-pointer">
                              <input  
                                 onChange={(e) => update(e.target.value,index)} type="text" className="border-2 border-black rounded bg-gray-300"   defaultValue={note}/>
                             <button onClick={() => remover(index)} className="hover:text-black text-white">
